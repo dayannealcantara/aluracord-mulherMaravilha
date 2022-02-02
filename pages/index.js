@@ -4,36 +4,7 @@ import React from "react";
 import { useRouter } from "next/router";
 
 
-function GlobalStyle() {
-  return (
-    <style global jsx>{`
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        list-style: none;
-      }
-      body {
-        font-family: "Open Sans", sans-serif;
-      }
-      /* App fit Height */
-      html,
-      body,
-      #__next {
-        min-height: 100vh;
-        display: flex;
-        flex: 1;
-      }
-      #__next {
-        flex: 1;
-      }
-      #__next > * {
-        flex: 1;
-      }
-      /* ./App fit Height */
-    `}</style>
-  );
-}
+
 
 function Titulo(props) {
   const Tag = props.tag || "h1";
@@ -55,11 +26,11 @@ function Titulo(props) {
 export default function PaginaInicial() {
   // const username = "dayannealcantara";
   const [username, setUsername] = React.useState('dayannealcantara');
-  const roteamento = useRouter
+  const roteamento = useRouter();
 
   return (
     <>
-      <GlobalStyle />
+     
       <Box
         styleSheet={{
           display: "flex",
@@ -94,8 +65,8 @@ export default function PaginaInicial() {
           <Box
             as="form"
             onSubmit={function (event){
-              console.log('enviado')
               event.preventDefault();
+             roteamento.push('/chat');
               
             }}
             styleSheet={{
@@ -116,7 +87,7 @@ export default function PaginaInicial() {
                 color: appConfig.theme.colors.neutrals["000"],
               }}
             >
-              {appConfig.name}
+             
             </Text>
             
             {/* <input type="text"
