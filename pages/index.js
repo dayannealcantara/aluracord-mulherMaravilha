@@ -11,8 +11,7 @@ function Titulo(props) {
   return (
     <>
       <Tag>{props.children}</Tag>
-      <style jsx>
-        {`
+      <style jsx>{`
           ${Tag} {
             color: ${appConfig.theme.colors.neutrals["000"]};
             font-size: 30px;
@@ -23,6 +22,7 @@ function Titulo(props) {
     </>
   );
 }
+
 export default function PaginaInicial() {
   // const username = "dayannealcantara";
   const [username, setUsername] = React.useState('dayannealcantara');
