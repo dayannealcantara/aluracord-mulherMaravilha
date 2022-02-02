@@ -1,5 +1,9 @@
 import appConfig from "../config.json";
 import { Box, Button, Text, TextField, Image } from "@skynexui/components";
+import React from "react";
+import { useRouter } from "next/router";
+
+
 function GlobalStyle() {
   return (
     <style global jsx>{`
@@ -49,7 +53,9 @@ function Titulo(props) {
   );
 }
 export default function PaginaInicial() {
-  const username = "dayannealcantara";
+  // const username = "dayannealcantara";
+  const [username, setUsername] = React.useState('dayannealcantara');
+  const roteamento = useRouter
 
   return (
     <>
@@ -108,20 +114,32 @@ export default function PaginaInicial() {
               {appConfig.name}
             </Text>
             
-            <input type="text"
+            {/* <input type="text"
             value={username}
-            />
-            {/* <TextField
+            onChange={function handler(event) {
+              console.log('usuario digitou', event.target.value);
+              const valor= event.target.value;
+              setUsername(valor);            
+
+            }}
+            /> */}
+            <TextField
+            value={username}
+            onChange={function handler(event) {
+              console.log('usuario digitou', event.target.value);
+              const valor= event.target.value;
+              setUsername(valor); 
+            }}
               fullWidth
               textFieldColors={{
                 neutral: {
-                  textColor: appConfig.theme.colors.neutrals[500],
+                  textColor: appConfig.theme.colors.neutrals[100],
                   mainColor: appConfig.theme.colors.neutrals[900],
                   mainColorHighlight: appConfig.theme.colors.primary[500],
                   backgroundColor: appConfig.theme.colors.neutrals[800],
                 },
               }}
-            /> */}
+            />
             <Button
               type="submit"
               label="Entrar"
