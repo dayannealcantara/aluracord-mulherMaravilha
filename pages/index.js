@@ -40,7 +40,7 @@ function Titulo(props) {
         {`
           ${Tag} {
             color: ${appConfig.theme.colors.neutrals["000"]};
-            font-size: 24px;
+            font-size: 30px;
             font-weight: 600;
           }
         `}
@@ -101,14 +101,17 @@ export default function PaginaInicial() {
             <Text
               variant="body3"
               styleSheet={{
-                marginBottom: "32px",
+                marginBottom: "40px",
                 color: appConfig.theme.colors.neutrals["000"],
               }}
             >
               {appConfig.name}
             </Text>
-
-            <TextField
+            
+            <input type="text"
+            value={username}
+            />
+            {/* <TextField
               fullWidth
               textFieldColors={{
                 neutral: {
@@ -118,7 +121,7 @@ export default function PaginaInicial() {
                   backgroundColor: appConfig.theme.colors.neutrals[800],
                 },
               }}
-            />
+            /> */}
             <Button
               type="submit"
               label="Entrar"
