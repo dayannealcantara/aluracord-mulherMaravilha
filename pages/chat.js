@@ -2,15 +2,14 @@ import{Box, Text, TextField, Image, Button} from "@skynexui/components"
 import React from "react";
 import appConfig from "../config.json"
 
-export default PaginaChat () {
+export default function PaginaChat () {
     const [ mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
-
 
 function handleNovaMensagem(novaMensagem) {
     const mensagem = {
         id: listaDeMensagens.length + 1,
-        de: 'luizAntomio',
+        de: 'Wellington Nascimento',
         texto: novaMensagem,
     };
     setListaDeMensagens([
@@ -26,7 +25,7 @@ return (
     styleSheet={{
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         backgroundColor: appConfig.theme.colors.primary[500],
-        backgroundImage: `url(https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain.jpg)`,
+        backgroundImage: `url(https://miro.medium.com/focal/1200/675/49/29/1*rI8SRQ5rPrx9TVVb5zVerQ.jpeg)`,
         backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         color: appConfig.theme.colors.neutrals['000']
     }}
@@ -116,8 +115,131 @@ function Header() {
         </>
     )
 }
+ function MessageList(props) {
+     console.log(props);
+     return (
+
+        <Box
+
+            tag="ul"
+
+            styleSheet={{
+
+                overflow: 'scroll',
+
+                display: 'flex',
+
+                flexDirection: 'column-reverse',
+
+                flex: 1,
+
+                color: appConfig.theme.colors.neutrals["000"],
+
+                marginBottom: '16px',
+
+            }}
+
+        >
+
+            {props.mensagens.map((mensagem) => {
+
+                return (
+
+                    <Text
+
+                        key={mensagem.id}
+
+                        tag="li"
+
+                        styleSheet={{
+
+                            borderRadius: '5px',
+
+                            padding: '6px',
+
+                            marginBottom: '12px',
+
+                            hover: {
+
+                                backgroundColor: appConfig.theme.colors.neutrals[700],
+
+                            }
+
+                        }}
+
+                    >
+
+                        <Box
+
+                            styleSheet={{
+
+                                marginBottom: '8px',
+
+                            }}
+
+                        >
+
+                            <Image
+
+                                styleSheet={{
+
+                                    width: '50px',
+
+                                    height: '50px',
+
+                                    borderRadius: '50%',
+
+                                    display: 'inline-block',
+
+                                    marginRight: '8px',
+
+                                }}
+
+                                src={`https://github.com/wellingtonnascimento.png`}
+
+                            />
+
+                            <Text tag="strong">
+
+                                {mensagem.de}
+
+                            </Text>
+
+                            <Text
+
+                                styleSheet={{
+
+                                    fontSize: '10px',
+
+                                    marginLeft: '8px',
+
+                                    color: appConfig.theme.colors.neutrals[300],
+
+                                }}
+
+                                tag="span"
+
+                            >
+
+                                {(new Date().toLocaleDateString())}
+
+                            </Text>
+
+                        </Box>
+
+                        {mensagem.texto}
+
+                    </Text>
+
+                );
+
+            })}
+
+        </Box>
+
+    )
+
+}
 
 
-
-)
    
